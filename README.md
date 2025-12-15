@@ -1,7 +1,7 @@
 LaraEstate
-A simple, robust Real Estate application built with Laravel and Bootstrap. This project demonstrates core web development concepts including MVC architecture, CRUD operations, Image Uploading, and User Authentication.
+A simple, robust Real Estate application built with Laravel 10/11 and Bootstrap 5. This project demonstrates core web development concepts including MVC architecture, CRUD operations, Image Uploading, and User Authentication.
 
-Features
+✨ Features
 User Authentication: Secure Login and Registration system.
 
 Property Listings: View all available houses with images and prices.
@@ -18,7 +18,7 @@ Delete: Remove sold properties from the listing.
 
 Image Handling: Secure file storage and public linking.
 
-Prerequisites
+🛠 Prerequisites
 Before running this project, ensure you have the following installed:
 
 XAMPP (PHP >= 8.1 & MySQL)
@@ -27,7 +27,7 @@ Composer (PHP Dependency Manager)
 
 Web Browser (Chrome/Edge/Firefox)
 
-Installation Guide
+🚀 Installation Guide
 Follow these steps to set up the project on your local machine.
 
 1. Clone the Repository
@@ -35,7 +35,7 @@ Open your terminal and run:
 
 Bash
 
-git clone https://github.com/kazmisohail/LaraEstate.git
+git clone https://github.com/YourUsername/LaraEstate.git
 cd LaraEstate
 2. Install Dependencies
 Download the necessary Laravel libraries:
@@ -98,7 +98,7 @@ Create the shortcut so public users can see uploaded images:
 Bash
 
 php artisan storage:link
-Running the Project
+🏁 Running the Project
 Start the local development server:
 
 Bash
@@ -106,7 +106,7 @@ Bash
 php artisan serve
 Open your browser and visit: http://127.0.0.1:8000
 
-Testing the App
+🧪 Testing the App
 Register: Click "Register" in the top right to create an account.
 
 Add Property: Once logged in, click "+ Sell House".
@@ -115,7 +115,7 @@ Upload: Fill in the details and upload a JPG/PNG image.
 
 Edit/Delete: Go to the details page of your property to modify or remove it.
 
-Project Structure
+📂 Project Structure
 app/Models - Contains the Database Models (User, Property).
 
 app/Http/Controllers - Contains the logic (PropertyController, AuthController).
@@ -124,5 +124,5 @@ resources/views - Contains the HTML/Blade files.
 
 routes/web.php - Contains all the URL definitions.
 
-License
+📜 License
 This project is for educational purposes.
