@@ -1,59 +1,128 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+LaraEstate
+A simple, robust Real Estate application built with Laravel and Bootstrap. This project demonstrates core web development concepts including MVC architecture, CRUD operations, Image Uploading, and User Authentication.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Features
+User Authentication: Secure Login and Registration system.
 
-## About Laravel
+Property Listings: View all available houses with images and prices.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Property Management:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Create: Upload new properties with photos.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Read: View detailed property pages.
 
-## Learning Laravel
+Update: Edit property details and prices.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Delete: Remove sold properties from the listing.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Image Handling: Secure file storage and public linking.
 
-## Laravel Sponsors
+Prerequisites
+Before running this project, ensure you have the following installed:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+XAMPP (PHP >= 8.1 & MySQL)
 
-### Premium Partners
+Composer (PHP Dependency Manager)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Web Browser (Chrome/Edge/Firefox)
 
-## Contributing
+Installation Guide
+Follow these steps to set up the project on your local machine.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Clone the Repository
+Open your terminal and run:
 
-## Code of Conduct
+Bash
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+git clone https://github.com/kazmisohail/LaraEstate.git
+cd LaraEstate
+2. Install Dependencies
+Download the necessary Laravel libraries:
 
-## Security Vulnerabilities
+Bash
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+composer install
+3. Environment Setup
+Duplicate the example environment file:
 
-## License
+Bash
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+cp .env.example .env
+4. 🗄️ Database Setup (Important!)
+We follow a "One Database, One User" security policy. Do not use the root account.
+
+Open phpMyAdmin (http://localhost/phpmyadmin).
+
+Create the Database:
+
+Name: lara_estate
+
+Collation: utf8mb4_unicode_ci
+
+Create the Specific User:
+
+Go to User Accounts > Add user account.
+
+User name: lara_user (or your preferred name)
+
+Password: secure_password (choose a strong password)
+
+Grant all privileges on database "lara_estate": Check the box that says "Grant all privileges on database lara_estate".
+
+Update your .env file: Open the .env file in VS Code and update the database section to match the user you just created:
+
+Ini, TOML
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=lara_estate
+DB_USERNAME=lara_user      <-- The specific user you created
+DB_PASSWORD=secure_password <-- The password you set
+5. Generate App Key
+This key encrypts your user sessions and passwords.
+
+Bash
+
+php artisan key:generate
+6. Run Migrations
+Build the tables in your database:
+
+Bash
+
+php artisan migrate
+7. Link Storage (For Images)
+Create the shortcut so public users can see uploaded images:
+
+Bash
+
+php artisan storage:link
+Running the Project
+Start the local development server:
+
+Bash
+
+php artisan serve
+Open your browser and visit: http://127.0.0.1:8000
+
+Testing the App
+Register: Click "Register" in the top right to create an account.
+
+Add Property: Once logged in, click "+ Sell House".
+
+Upload: Fill in the details and upload a JPG/PNG image.
+
+Edit/Delete: Go to the details page of your property to modify or remove it.
+
+Project Structure
+app/Models - Contains the Database Models (User, Property).
+
+app/Http/Controllers - Contains the logic (PropertyController, AuthController).
+
+resources/views - Contains the HTML/Blade files.
+
+routes/web.php - Contains all the URL definitions.
+
+License
+This project is for educational purposes.
